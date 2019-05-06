@@ -1,0 +1,193 @@
+[colors]
+background = #29363E
+foreground = #ffffff
+backgroundbottom = #000000cc
+#greenish blue
+color0 = #009A93
+#red (errors etc)
+color1 = #e7344c
+#green (spotify)
+color2 = #1ed760
+
+[wm_settings]
+focused_background   = ${colors.color0}
+unfocused_background = #333d43
+unfocused_alert      = #F4511E
+
+padding = 0
+
+[bar/top]
+width = 100%
+height = 25
+radius = 0
+line-size = 2
+background = ${colors.background}
+foreground = ${colors.foreground}
+border-top-size = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 1
+module-margin-right = 1
+#tray-position = right
+#tray-scale = 1.0
+module-margin = 1
+#separator = |
+font-0 = Hack:style=Medium:size=9.5
+font-1 = Icofont:style=Regular:size=11
+tray-position=right
+
+
+modules-left = i3 music
+modules-center = xwindow
+modules-right = updatecount wifi ethernet xbacklight volume battery date
+
+[module/dummy]
+type = custom/script
+
+# Module for window title
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:40:...%
+format-underline = ${colors.color0}
+
+# Module for i3 workspaces
+[module/i3]
+type = internal/i3
+# Icons
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+strip-wsnumbers = true
+format = <label-state> <label-mode>
+index-sort = true
+pin-workspaces = false
+wrapping-scroll = false
+label-mode-padding = 3
+label-mode-background = ${colors.background}
+label-focused = %index%%icon%
+label-focused-background = ${colors.color0}
+label-focused-padding = 1
+label-unfocused = %index%
+label-unfocused-underline = ${colors.color0}
+label-unfocused-padding = 1
+label-urgent =%index%
+label-urgent-background = ${colors.color1}
+label-urgent-padding = 1
+
+# Module for brightness
+[module/xbacklight]
+type = internal/xbacklight
+card = intel_backlight
+enable-scroll = true
+output = eDP-1
+format = <label>
+label = "%percentage%%"
+ramp-foreground = ${colors.color0}
+
+# Module for wifi
+[module/wifi]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+format-connected-prefix = ""
+format-connected = <label-connected>
+label-connected = "%essid%"
+format-disconnected = <label-disconnected>
+label-disconnected = 
+ramp-signal-font = 1
+
+label-disconnected-foreground = ${colors.color1}
+ramp-signal-foreground = ${colors.color0}
+
+# Module for ethernet
+[module/ethernet]
+type = internal/network
+interface = enp0s20f0u3u1u1
+interval = 3.0
+format-connected-prefix = ""
+format-connected-prefix-foreground = ${colors.color0}
+label-connected = "%local_ip%"
+format-disconnected = 
+#label-disconnected = %ifname% disconnected
+#label-disconnected-foreground = ${colors.color1}
+
+
+# Module for date & time
+[module/date]
+type = internal/date
+interval = 1
+format-prefix-foreground = ${colors.color0}
+date = %d.%m.%Y %H:%M
+label = %date%
+
+[module/volume]
+type = internal/volume
+format-volume = <ramp-volume><label-volume> 
+label-volume  = "%percentage%"
+format-muted                    = <label-muted>
+label-muted            = ""
+#label-muted-foreground = ${colors.color1}
+ramp-format-foreground = 
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+##ramp-volume-foreground = ${colors.color0}
+
+[module/updatecount]
+type = custom/script
+exec = ~/.config/polybar/updatecount.sh
+format = "<label>"
+format-label
+interval = 300
+
+# Module for battery
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP0
+full-at = 100
+format-charging = <animation-charging><label-charging>
+format-charging-foreground = ${colors.color2}
+format-discharging = <ramp-capacity><label-discharging>
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.color2}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-foreground-0 = ${colors.color1}
+ramp-capacity-foreground-1 = ${colors.color0}
+ramp-capacity-foreground-2 = ${colors.color2}
+ramp-capacity-foreground-3 = ${colors.color2}
+ramp-capacity-foreground-4 = ${colors.color2}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-foreground-0 = ${colors.color2}
+animation-charging-foreground-1 = ${colors.color2}
+animation-charging-foreground-2 = ${colors.color2}
+animation-charging-foreground-3 = ${colors.color2}
+animation-charging-foreground-4 = ${colors.color2}
+animation-charging-framerate = 500
+
+[module/music]
+type = custom/script
+format-suffix = ""
+format-suffix-foreground = ${colors.color2}
+interval = 1
+exec = ~/.config/polybar/spotify.sh %artist% - %title%
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
