@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 
 updatelines=`eopkg lu`
-updatecount=`echo $updatelines | wc -l`
+
+updatecount=`echo -E $updatelines | wc -l`
 
 if [[ $updatecount -ge 2 ]]
 
