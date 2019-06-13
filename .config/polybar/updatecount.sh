@@ -9,7 +9,7 @@ if [[ $updatecount -ge 2 ]]
 	then
 		echo $updatecount
 
-	elif [ "$updatelines" == "No packages to upgrade." ]
+	elif [ "$updatelines"=="No packages to upgrade." ]
 
 	then
 		echo "0"

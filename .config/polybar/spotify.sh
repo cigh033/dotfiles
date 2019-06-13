@@ -6,11 +6,11 @@ if [ $? == 1 ]; then
 elif [ "$(playerctl status)" == "Playing" ]; then
     title=`exec playerctl metadata title`
     artist=`exec playerctl metadata artist`
-    echo "$title - $artist"
+    echo "playing '$title' from '$artist'"
 elif [ "$(playerctl status)" == "Paused" ]; then
     title=`exec playerctl metadata title`
     artist=`exec playerctl metadata artist`
-    echo "$title - $artist"
+    echo "paused '$title' from '$artist'"
 else
     echo ""
 fi

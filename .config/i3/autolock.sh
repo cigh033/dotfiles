@@ -9,8 +9,8 @@ export PRIMARY_DISPLAY="$(xrandr | awk '/ primary/{print $1}')"
 	'xrandr --output "$PRIMARY_DISPLAY" --brightness .5' \
 	'xrandr --output "$PRIMARY_DISPLAY" --brightness 1' \
 	--timer primary 10 \
-	'xrandr --output "$PRIMARY_DISPLAY" --brightness 1; ~/.config/i3/i3lock.sh' \
+	'xrandr --output "$PRIMARY_DISPLAY" --brightness 1; $HOME/.config/i3/i3lock.sh' \
 	'' \
 	--timer normal 1800 \
-	'systemctl suspend' \
+	'$HOME/.config/i3/autosuspend.sh' \
 	''

@@ -5,9 +5,11 @@ backgroundbottom = #000000cc
 #greenish blue
 color0 = #009A93
 #red (errors etc)
-color1 = #e7344c
-#green (spotify)
-color2 = #1ed760
+color1 = #E7344C
+#green
+color2 = #A2C617
+#yellow
+color3 = #FFF374
 
 [wm_settings]
 focused_background   = ${colors.color0}
@@ -113,7 +115,7 @@ type = internal/network
 interface = enp0s20f0u3u1u1
 interval = 3.0
 format-connected-prefix = ""
-format-connected-prefix-foreground = ${colors.color0}
+#format-connected-prefix-foreground = ${colors.color0}
 label-connected = "%local_ip%"
 format-disconnected = 
 #label-disconnected = %ifname% disconnected
@@ -125,11 +127,11 @@ format-disconnected =
 type = internal/date
 interval = 1
 format-prefix-foreground = ${colors.color0}
-date = %d.%m.%Y %H:%M
+date = %d.%m.%Y %H:%M
 label = %date%
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 format-volume = <ramp-volume><label-volume> 
 label-volume  = "%percentage%"
 format-muted                    = <label-muted>
@@ -163,7 +165,7 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-foreground-0 = ${colors.color1}
-ramp-capacity-foreground-1 = ${colors.color0}
+ramp-capacity-foreground-1 = ${colors.color3}
 ramp-capacity-foreground-2 = ${colors.color2}
 ramp-capacity-foreground-3 = ${colors.color2}
 ramp-capacity-foreground-4 = ${colors.color2}
@@ -180,8 +182,6 @@ animation-charging-framerate = 500
 
 [module/music]
 type = custom/script
-format-suffix = ""
-format-suffix-foreground = ${colors.color2}
 interval = 1
 exec = ~/.config/polybar/spotify.sh %artist% - %title%
 
