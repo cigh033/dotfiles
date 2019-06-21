@@ -32,7 +32,8 @@
     active-background:           @orange;
 }
 #window {
-    border:     0;
+    border:     1;
+    border-color: @blue;
     text-color: @foreground;
     background-color: rgba ( 0, 0, 0, 0 % );
     padding:    5;

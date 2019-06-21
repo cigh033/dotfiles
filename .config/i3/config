@@ -5,8 +5,10 @@ set $wallpaper "$HOME/Pictures/Rgyzbqv.png"
 #hide_edge_borders both
 
 
-########## Keybindings ##########
-bindsym $mod+l exec ~/.config/i3/i3lock.sh
+exec_always --no-startup-id $HOME/.config/i3/autolock.sh &
+######## Keybindings ##########
+#bindsym $mod+l exec ~/.config/i3/i3lock.sh
+bindsym $mod+l exec /opt/xidlehook/xidlehook-client --socket /tmp/xidlehook.sock --trigger || i3lock
 
 ### Backlight ###
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
@@ -41,6 +43,7 @@ bindsym $mod+Shift+q kill
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run -theme ~/.config/rofi/popdark.rasi
 bindsym $mod+Shift+d exec rofi -show window -theme ~/.config/rofi/popdark.rasi
+bindsym $mod+Shift+s exec rofi -show ssh -theme ~/.config/rofi/popdark.rasi
 
 bindsym $mod+F12 exec xrandr --output DP1-2 --off --output eDP1 --auto 
 bindsym $mod+Shift+F12 exec xrandr --output eDP1 --off --output DP1-2 --auto 
@@ -164,14 +167,13 @@ gaps inner 10
 ########## Autostart ##########
 
 # Start compton (compositor)
-exec --no-startup-id ~/.config/i3/check_monitors.sh &
-exec --no-startup-id compton -b --config ~/.config/compton/compton.conf &
+exec --no-startup-id compton -b --config ~/.config/compton.conf &
 exec --no-startup-id nm-applet &
 exec --no-startup-id /usr/lib64/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 exec_always --no-startup-id ~/.config/dunst/dunst.sh &
-exec_always --no-startup-id /opt/enpass/Enpass &
-exec_always --no-startup-id ~/.config/i3/autolock.sh &
+exec --no-startup-id /opt/enpass/Enpass &
+#exec --no-startup-id $HOME/.config/i3/autolock.sh &
 # Start pulseaudio
 exec --no-startup-id pulseaudio --start &
 # Set wallpaper
