@@ -16,7 +16,7 @@ export PRIMARY_DISPLAY="$(xrandr | awk '/ primary/{print $1}')"
 	'xbacklight -get > /tmp/xbacklightvalue; xbacklight -set 50' \
 	'xbacklight -set $(cat /tmp/xbacklightvalue)' \
 	--timer primary 10 \
-	'if [ $(xbacklight -get | cut -d "." -f 1) -gt 49 ];then xbacklight -get > /tmp/xbacklightvalue;fi; xbacklight -set 30;$HOME/.config/i3/i3lock.sh' \
+	'if [ $(xbacklight -get | cut -d "." -f 1) -gt 49 ];then xbacklight -get > /tmp/xbacklightvalue;fi; xbacklight -set 1;$HOME/.config/i3/i3lock.sh' \
 	'xbacklight -set $(cat /tmp/xbacklightvalue)' \
 	--timer normal 1800 \
 	'$HOME/.config/i3/autosuspend.sh' \
