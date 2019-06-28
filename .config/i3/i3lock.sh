@@ -5,7 +5,10 @@ if [ -z $rdpconnected ]
 	then
 		if ! pgrep -x "i3lock" > /dev/null
 		then
-			i3lock -i ~/Pictures/lockscreen.png -t
+			if ! pgrep -x "zoom" > /dev/null
+			then
+				i3lock -i ~/Pictures/lockscreen.png -t
+			fi
 		fi
 
 

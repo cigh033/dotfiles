@@ -20,7 +20,7 @@ padding = 0
 
 [bar/top]
 width = 100%
-height = 25
+height = 30
 radius = 0
 line-size = 2
 background = ${colors.background}
@@ -32,10 +32,11 @@ module-margin-left = 1
 module-margin-right = 1
 #tray-position = right
 #tray-scale = 1.0
-module-margin = 1
+module-margin = 2
 #separator = |
-font-0 = Hack:style=Medium:size=9.5
-font-1 = Icofont:style=Regular:size=11
+font-0 = Hack:style=Regular:size=10
+font-1 = Segoe MDL2 Assets:style=Reguiar:size=11
+font-2 = Icofont:style=Regular:size=13
 tray-position=right
 
 
@@ -56,16 +57,16 @@ format-underline = ${colors.color0}
 [module/i3]
 type = internal/i3
 # Icons
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
+#ws-icon-0 = 1;
+#ws-icon-1 = 2;
+#ws-icon-2 = 3;
+#ws-icon-3 = 4;
+#ws-icon-4 = 5;
+#ws-icon-5 = 6;
+#ws-icon-6 = 7;
+#ws-icon-7 = 8;
+#ws-icon-8 = 9;
+#ws-icon-9 = 10;
 
 strip-wsnumbers = true
 format = <label-state> <label-mode>
@@ -74,13 +75,13 @@ pin-workspaces = false
 wrapping-scroll = false
 label-mode-padding = 3
 label-mode-background = ${colors.background}
-label-focused = %index%%icon%
+label-focused = %name%
 label-focused-background = ${colors.color0}
 label-focused-padding = 1
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-underline = ${colors.color0}
 label-unfocused-padding = 1
-label-urgent =%index%
+label-urgent = %name%
 label-urgent-background = ${colors.color1}
 label-urgent-padding = 1
 
@@ -90,37 +91,31 @@ type = internal/xbacklight
 card = intel_backlight
 enable-scroll = true
 output = eDP-1
-format = <label>
-label = "%percentage%%"
-ramp-foreground = ${colors.color0}
+format = <label>
+label = "%percentage%%"
+ramp-foreground = ${colors.foreground}
 
 # Module for wifi
 [module/wifi]
 type = internal/network
 interface = wlp2s0
 interval = 3.0
-format-connected-prefix = ""
-format-connected = <label-connected>
-label-connected = "%essid%"
-format-disconnected = <label-disconnected>
-label-disconnected = 
-ramp-signal-font = 1
-
-label-disconnected-foreground = ${colors.color1}
-ramp-signal-foreground = ${colors.color0}
+format-connected = <ramp-signal><label-connected>
+ramp-signal-0 =
+ramp-signal-1 =
+ramp-signal-2 =
+ramp-signal-foreground = ${colors.foreground}
+label-connected = %essid%
 
 # Module for ethernet
 [module/ethernet]
 type = internal/network
 interface = enp0s20f0u3u1u1
 interval = 3.0
-format-connected-prefix = ""
+format-connected-prefix = ""
 #format-connected-prefix-foreground = ${colors.color0}
 label-connected = "%local_ip%"
-format-disconnected = 
-#label-disconnected = %ifname% disconnected
-#label-disconnected-foreground = ${colors.color1}
-
+label-disconnected = " disconnected"
 
 # Module for date & time
 [module/date]
@@ -135,11 +130,13 @@ type = internal/alsa
 format-volume = <ramp-volume><label-volume> 
 label-volume  = "%percentage%"
 format-muted                    = <label-muted>
-label-muted            = ""
+label-muted            = ""
 #label-muted-foreground = ${colors.color1}
 ramp-format-foreground = 
-ramp-volume-0 = ""
-ramp-volume-1 = ""
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
+ramp-volume-3 = ""
 ##ramp-volume-foreground = ${colors.color0}
 
 [module/updatecount]
@@ -158,26 +155,52 @@ full-at = 100
 format-charging = <animation-charging><label-charging>
 format-charging-foreground = ${colors.color2}
 format-discharging = <ramp-capacity><label-discharging>
-format-full-prefix = " "
+format-full-prefix = ""
 format-full-prefix-foreground = ${colors.color2}
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-10 = 
 ramp-capacity-foreground-0 = ${colors.color1}
-ramp-capacity-foreground-1 = ${colors.color3}
-ramp-capacity-foreground-2 = ${colors.color2}
-ramp-capacity-foreground-3 = ${colors.color2}
-ramp-capacity-foreground-4 = ${colors.color2}
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
+ramp-capacity-foreground-1 = ${colors.color1}
+ramp-capacity-foreground-2 = ${colors.color1}
+ramp-capacity-foreground-3 = ${colors.color3}
+ramp-capacity-foreground-4 = ${colors.color3}
+ramp-capacity-foreground-5 = ${colors.color3}
+ramp-capacity-foreground-6 = ${colors.color2}
+ramp-capacity-foreground-7 = ${colors.color2}
+ramp-capacity-foreground-8 = ${colors.color2}
+ramp-capacity-foreground-9 = ${colors.color2}
+ramp-capacity-foreground-10 = ${colors.color2}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-6 = 
+animation-charging-7 = 
+animation-charging-8 = 
+animation-charging-9 = 
+animation-charging-10 = 
 animation-charging-foreground-0 = ${colors.color2}
 animation-charging-foreground-1 = ${colors.color2}
 animation-charging-foreground-2 = ${colors.color2}
 animation-charging-foreground-3 = ${colors.color2}
 animation-charging-foreground-4 = ${colors.color2}
+animation-charging-foreground-5 = ${colors.color2}
+animation-charging-foreground-6 = ${colors.color2}
+animation-charging-foreground-7 = ${colors.color2}
+animation-charging-foreground-8 = ${colors.color2}
+animation-charging-foreground-9 = ${colors.color2}
+animation-charging-foreground-10 = ${colors.color2}
 animation-charging-framerate = 500
 
 [module/music]
