@@ -7,7 +7,7 @@ updatecount=`echo -E $updatelines | wc -l`
 if [[ $updatecount -ge 2 ]]
 
 	then
-		echo "$updatecount"
+		echo "%{F#FFF374}$updatecount"
 
 	elif [ "$updatelines"=="No packages to upgrade." ]
 

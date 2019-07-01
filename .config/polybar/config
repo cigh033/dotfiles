@@ -122,7 +122,7 @@ label-disconnected = " disconnected"
 type = internal/date
 interval = 1
 format-prefix-foreground = ${colors.color0}
-date = %d.%m.%Y %H:%M
+date =  %d.%m.%Y %H:%M
 label = %date%
 
 [module/volume]
@@ -168,17 +168,17 @@ ramp-capacity-7 = 
 ramp-capacity-8 = 
 ramp-capacity-9 = 
 ramp-capacity-10 = 
-ramp-capacity-foreground-0 = ${colors.color1}
-ramp-capacity-foreground-1 = ${colors.color1}
-ramp-capacity-foreground-2 = ${colors.color1}
-ramp-capacity-foreground-3 = ${colors.color3}
-ramp-capacity-foreground-4 = ${colors.color3}
-ramp-capacity-foreground-5 = ${colors.color3}
-ramp-capacity-foreground-6 = ${colors.color2}
-ramp-capacity-foreground-7 = ${colors.color2}
-ramp-capacity-foreground-8 = ${colors.color2}
-ramp-capacity-foreground-9 = ${colors.color2}
-ramp-capacity-foreground-10 = ${colors.color2}
+ramp-capacity-0-foreground = ${colors.color1}
+ramp-capacity-1-foreground = ${colors.color1}
+ramp-capacity-2-foreground = ${colors.color1}
+ramp-capacity-3-foreground = ${colors.color3}
+ramp-capacity-4-foreground = ${colors.color3}
+ramp-capacity-5-foreground = ${colors.color3}
+ramp-capacity-6-foreground = ${colors.color2}
+ramp-capacity-7-foreground = ${colors.color2}
+ramp-capacity-8-foreground = ${colors.color2}
+ramp-capacity-9-foreground = ${colors.color2}
+ramp-capacity-10-foreground = ${colors.color2}
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
@@ -201,7 +201,7 @@ animation-charging-foreground-7 = ${colors.color2}
 animation-charging-foreground-8 = ${colors.color2}
 animation-charging-foreground-9 = ${colors.color2}
 animation-charging-foreground-10 = ${colors.color2}
-animation-charging-framerate = 500
+animation-charging-framerate = 800
 
 [module/music]
 type = custom/script
