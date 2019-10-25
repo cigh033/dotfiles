@@ -12,12 +12,12 @@ export PRIMARY_DISPLAY="$(xrandr | awk '/ primary/{print $1}')"
 	--not-when-fullscreen \
 	--socket /tmp/xidlehook.sock \
 	--not-when-audio \
-	--timer normal 30 \
-	'xbacklight -get > /tmp/xbacklightvalue; xbacklight -set 50' \
-	'xbacklight -set $(cat /tmp/xbacklightvalue)' \
-	--timer primary 60 \
-	'if [ $(xbacklight -get | cut -d "." -f 1) -gt 49 ];then xbacklight -get > /tmp/xbacklightvalue;fi; xbacklight -set 1;$HOME/.config/i3/i3lock.sh' \
-	'xbacklight -set $(cat /tmp/xbacklightvalue)' \
+	--timer normal 60 \
+	'~/.config/i3/brightnesscontrol.sh 20' \
+	'pkill brightnesscontr' \
+	--timer primary 90 \
+	'pkill brightnesscontr;$HOME/.config/i3/i3lock.sh;~/.config/i3/brightnesscontrol.sh 10' \
+	'pkill brightnesscontr' \
 	--timer normal 1800 \
 	'$HOME/.config/i3/autosuspend.sh' \
 	''

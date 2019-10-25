@@ -37,12 +37,13 @@ module-margin = 2
 font-0 = Hack:style=Regular:size=10
 font-1 = Segoe MDL2 Assets:style=Reguiar:size=11
 font-2 = Icofont:style=Regular:size=13
+font-3 = Segoe MDL2 Assets:style=Bold:size=14
 tray-position=right
 
 
 modules-left = i3 music
 modules-center = xwindow
-modules-right = updatecount wifi ethernet xbacklight volume battery date
+modules-right = mobile updatecount wifi ethernet xbacklight volume battery date
 
 [module/dummy]
 type = custom/script
@@ -90,7 +91,7 @@ label-urgent-padding = 1
 type = internal/xbacklight
 card = intel_backlight
 enable-scroll = true
-output = eDP-1
+output = eDP1
 format = <label>
 label = "%percentage%%"
 ramp-foreground = ${colors.foreground}
@@ -207,6 +208,12 @@ animation-charging-framerate = 800
 type = custom/script
 interval = 1
 exec = ~/.config/polybar/spotify.sh %artist% - %title%
+
+[module/mobile]
+type = custom/script
+interval = 1
+exec = ~/.config/polybar/mobile.sh
+#format-underline = ${colors.color0}
 
 [settings]
 screenchange-reload = true

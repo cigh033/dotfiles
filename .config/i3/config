@@ -177,6 +177,7 @@ exec --no-startup-id /opt/enpass/Enpass &
 #exec --no-startup-id $HOME/.config/i3/autolock.sh &
 # Start pulseaudio
 exec --no-startup-id pulseaudio --start &
+exec --no-startup-id kdeconnect-indicator &
 # Set wallpaper
 exec_always --no-startup-id feh --bg-fill $wallpaper &
 ########## Auto-Assign ##########
