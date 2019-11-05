@@ -116,7 +116,7 @@ interval = 3.0
 format-connected-prefix = ""
 #format-connected-prefix-foreground = ${colors.color0}
 label-connected = "%local_ip%"
-label-disconnected = " disconnected"
+label-disconnected = " "
 
 # Module for date & time
 [module/date]
