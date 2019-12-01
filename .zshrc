@@ -97,5 +97,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="neovim"
 alias vim="neovim"
+alias up3="sudo python /opt/update-thirdparty/update-thirdparty.py"
+alias up="sudo eopkg up"
 
+alias sudo='sudo '
+alias upall="sudo up && sudo up3"
 autoload -U compinit && compinit
